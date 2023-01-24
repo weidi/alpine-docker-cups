@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 #
 # BUILD:
 #   wget https://raw.githubusercontent.com/thbe/docker-cups/master/Dockerfile
@@ -10,8 +10,9 @@ FROM alpine
 #
 
 # Set metadata
-LABEL maintainer="Thomas Bendler <project@bendler-net.de>"
-LABEL version="1.3"
+LABEL author="thbe - https://github.com/thbe"
+LABEL maintainer="jelliuk - https://github.com/jelliuk"
+LABEL version="2.0"
 LABEL description="Creates an Alpine container serving a CUPS instance accessible through airplay as well"
 
 # Set environment
@@ -23,6 +24,9 @@ WORKDIR /opt/cups
 
 # Install CUPS/AVAHI
 RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
+
+# Install Splix Drivers for Samsung Printers
+RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 # Copy configuration files
 COPY root /
