@@ -26,7 +26,7 @@ WORKDIR /opt/cups
 RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
 
 # Install Splix Drivers for Samsung Printers
-RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
 
 # Copy configuration files
 COPY root /
