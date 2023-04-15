@@ -95,9 +95,5 @@ jobs:
           TAGS: ${{ steps.docker_meta.outputs.tags }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        #Original
-        #run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
-        #Option 2
-        run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${{ steps.build-and-push.outputs.digest }}
-        #Option 3
-        #run: cosign sign --yes ${TAGS}
+
+        run: echo '{TAGS}' | xargs -I {} cosign sign --yes {}@${{ steps.build-and-push.outputs.digest }}
