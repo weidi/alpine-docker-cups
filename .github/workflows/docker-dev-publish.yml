@@ -10,9 +10,21 @@ on:
     branches: [ "development" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
+    paths-ignore:
+      - README.md
+      - CHANGELOG.md # Should never be edited anyway
+      - LICENSE.md # Should never be edited anyway
+      - .gitignore
+      - .github/**
   pull_request:
     branches: [ "development" ]
-
+    paths-ignore:
+      - README.md
+      - CHANGELOG.md # Should never be edited anyway
+      - LICENSE.md # Should never be edited anyway
+      - .gitignore
+      - .github/**
+      
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
