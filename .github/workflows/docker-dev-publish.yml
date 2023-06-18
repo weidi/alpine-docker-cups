@@ -55,7 +55,7 @@ jobs:
 
       - name: Setup Docker buildx
       # try default buildx action v2
-        uses: docker/setup-buildx-action@v2.6.0
+        uses: docker/setup-buildx-action@v2.7.0
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -73,7 +73,7 @@ jobs:
       - name: Extract Docker metadata
         id: meta
         #try with metadata-action v4
-        uses: docker/metadata-action@v4.5.0
+        uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
@@ -82,7 +82,7 @@ jobs:
       - name: Build and push Docker image
         id: build-and-push
         # try default build and push action v3
-        uses: docker/build-push-action@v4.1.0
+        uses: docker/build-push-action@v4.1.1
         with:
           context: .
           push: false
