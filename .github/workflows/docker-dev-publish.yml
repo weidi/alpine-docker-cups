@@ -51,12 +51,11 @@ jobs:
       - name: Install Cosgin
         if: github.event_name != 'pull_request'
         #try using main
-        uses: sigstore/cosign-installer@v3.1.0
+        uses: sigstore/cosign-installer@v3.1.1
 
       - name: Setup Docker buildx
       # try default buildx action v2
-        uses: docker/setup-buildx-action@v2.7.0
-
+        uses: docker/setup-buildx-action@v2.8.0
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
