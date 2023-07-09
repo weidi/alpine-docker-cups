@@ -1,7 +1,7 @@
 name: Merge branch with label - "auto-merge"
 on:
  pull_request:
-    branches: [ "development" ]
+    branches: [ "master" ]
     types: [labeled]
 jobs:
   merge-branch:
