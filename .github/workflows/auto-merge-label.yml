@@ -7,7 +7,7 @@ jobs:
   merge-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.0.0
+      - uses: actions/checkout@v4.1.0
 
       - name: Merge by labeled
         uses: devmasx/merge-branch@v1.4.0
