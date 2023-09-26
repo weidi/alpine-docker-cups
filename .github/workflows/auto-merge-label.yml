@@ -1,17 +1,22 @@
 name: Merge branch with label - "auto-merge"
 on:
  pull_request:
-    branches: [ "master" ]
-    types: [labeled]
+   branches: [ "master" ]
+   types: [labeled]
+ pull_request_review:
+   types:
+     - submitted
+ check_suite:
+   types:
+     - completed
+ status: {}
 jobs:
-  merge-branch:
+  automerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.0
-
-      - name: Merge by labeled
-        uses: devmasx/merge-branch@v1.4.0
-        with:
-          label_name: 'auto-merge'
-          target_branch: 'development'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "auto-merge"
