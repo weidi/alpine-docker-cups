@@ -1,6 +1,6 @@
 # CUPS on Docker
 
-[![Docker](https://github.com/jelliuk/alpine-docker-cups/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/jelliuk/alpine-docker-cups/actions/workflows/docker-publish.yml)
+[![Docker](https://github.com/jelliuk/alpine-docker-cups/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/jelliuk/alpine-docker-cups/actions/workflows/docker-publish.yml) [![License](https://img.shields.io/badge/License-GNU_GPLv3-blue)](#license)
 
 This is a Docker image to run a CUPS instance with built in Apples zeroconf support.
 
