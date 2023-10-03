@@ -15,9 +15,11 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - id: auto-merge
-        #name: automerge
-        uses: "pascalgn/automerge-action@v0.15.6"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "auto-merge"
+      -  name: Checkout repository
+         uses: actions/checkout@v4.1.0
+         id: auto-merge
+      -  name: auto-merge
+         uses: "pascalgn/automerge-action@v0.15.6"
+         env:
+           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+           MERGE_LABELS: "auto-merge"
