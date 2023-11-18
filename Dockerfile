@@ -23,7 +23,7 @@ ENV TERM xterm
 WORKDIR /opt/cups
 
 # Install CUPS/AVAHI
-RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
+RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools shadow busybox-extras
 
 # Install Splix Drivers for Samsung Printers
 RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community

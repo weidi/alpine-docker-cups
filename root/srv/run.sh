@@ -65,6 +65,9 @@ fi
 echo root:${CUPS_PASSWORD} | /usr/sbin/chpasswd
 if [ ${?} -ne 0 ]; then RETURN=${?}; REASON="Failed to set password ${CUPS_PASSWORD} for user root, aborting!"; exit; fi
 
+#groupadd lpadmin
+usermod -a -G lpadmin root
+
 cat <<EOF
 
 ===========================================================
@@ -88,6 +91,9 @@ EOF
 
 ### Start avahi instance ###
 /usr/sbin/avahi-daemon --daemonize --syslog
+
+####start 9100 forwarder
+inetd -e
 
 ### Start CUPS instance ###
 /usr/sbin/cupsd -f -c /etc/cups/cupsd.conf
