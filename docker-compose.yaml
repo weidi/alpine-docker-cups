@@ -5,8 +5,8 @@ services:
     restart: always
     networks:
       - cups-vlan
-    #volumes:
-    #  - /tmp/output:/mnt/output
+    volumes:
+      - cupsconfig:/etc/cups
     ports:
       - 631:631 # Expose HTTP server
       - 9100:9100
@@ -21,3 +21,6 @@ networks:
         - subnet: "192.168.0.0/16"
           ip_range: "192.168.10.241/32" #static IP
           gateway: "192.168.10.200"
+
+volumes:
+  cupsconfig:

@@ -23,7 +23,7 @@ ENV TERM xterm
 WORKDIR /opt/cups
 
 # Install CUPS/AVAHI
-RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools shadow busybox-extras
+RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools shadow busybox-extras ghostscript
 
 # Install Splix Drivers for Samsung Printers
 RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
@@ -32,7 +32,7 @@ RUN apk add --no-cache splix --repository=https://dl-cdn.alpinelinux.org/alpine/
 COPY root /
 
 # Prepare CUPS container
-RUN chmod 755 /srv/run.sh
+RUN chmod -R 755 /srv/
 
 # Expose SMB printer sharing
 EXPOSE 137/udp 139/tcp 445/tcp
